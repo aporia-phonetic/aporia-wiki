@@ -1,0 +1,42 @@
+site_name: Aporia Phonetic Group Wiki
+site_description: Cross-referenced wiki for heterodyne, auralbouros, godot-pipeline, find, and the worlds/characters/seasons they produce.
+repo_url: https://github.com/aporia-phonetic/aporia-wiki
+repo_name: aporia-phonetic/aporia-wiki
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+use_directory_urls: true
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - tables
+  - admonition
+  - toc:
+      permalink: true
+
+# No explicit `nav:` — with 150+ generated pages across systems/worlds/
+# characters/seasons, MkDocs' automatic nav (built from the docs/
+# directory tree, alphabetical) is more maintainable than hand-listing
+# every page. Section landing pages (index.md in each folder, once
+# added) get picked up automatically via navigation.indexes.
