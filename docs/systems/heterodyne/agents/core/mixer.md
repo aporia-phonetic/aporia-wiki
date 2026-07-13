@@ -160,3 +160,7 @@ Foley resolution order:
   1. FoleyCatalog (if attached and cue matches a catalog_id)
   2. Legacy flat directory at <foley_dir>/<cue>.wav
   3. Skip with warning.
+
+## Top-level functions
+
+- **`compute_block_pause()`** — Seconds of silence to place after a spoken block.

@@ -153,3 +153,7 @@ and parses the float32 PCM (44.1 kHz mono) response.
 `voice` is the reference WAV path (same convention as chatterbox/zonos). When
 the server is unreachable the call raises, which the VoiceEngine health probe
 turns into a fallback to the secondary backend (chatterbox) → kokoro.
+
+## Top-level functions
+
+- **`ensure_zonos2_server()`** — Make sure the ZONOS2 server is up, launching it if it isn't.

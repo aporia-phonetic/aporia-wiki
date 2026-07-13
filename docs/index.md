@@ -9,7 +9,9 @@ repos.
 
 ## Systems
 
-The four repos that make up the "launch trio" (+ one parked piece):
+The repos that make up the "launch trio" (+ one parked piece + one
+standalone). Each system page includes a **cheat sheet** mirrored from the
+repo's root `CHEATSHEET.md` — every terminal command for that engine.
 
 - **[heterodyne](systems/heterodyne/overview.md)** — the engine. Generates
   full audio-drama episodes (script, voice, foley, music, mix) from a
@@ -25,6 +27,9 @@ The four repos that make up the "launch trio" (+ one parked piece):
 - **[find](systems/find/overview.md)** — internal business-ops tool
   ("Founders Input Needed Daily"). No story content of its own; bridges
   to heterodyne for royalties/customer-success data.
+- **[sophrosyne](systems/sophrosyne/overview.md)** — standalone personal
+  honesty engine (formerly LODESTAR); the World Ledger stack pointed at a
+  real person instead of a fictional world.
 
 ## Worlds, characters, seasons
 

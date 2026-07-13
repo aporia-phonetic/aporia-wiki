@@ -23,4 +23,5 @@ to nothing gracefully when no past episodes exist.
 - **`build_idiolect_card()`** — One character's measured style card, or '' when no history exists.
 - **`build_idiolect_cards()`** — Joined cards for the scene writer / intention prompts. '' if none.
 - **`retrieve_moments()`** — Top-k past lines most lexically relevant to the query (scene
+- **`voice_drift_report()`** — Flag characters whose measured voice has DRIFTED across the season.
 - **`format_moments_for_prompt()`** — MOMENTS YOU MAY CALL BACK TO block; '' when nothing retrieved.

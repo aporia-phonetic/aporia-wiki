@@ -21,24 +21,42 @@ edits will be overwritten on the next generator run.
 Everything else (overviews, concept pages, the glossary, this page) is
 written and maintained like normal documentation. Edit these directly.
 
-## The update Routine
+## Mirrored cheat sheets
+
+Each system repo keeps a root `CHEATSHEET.md` (every terminal command for
+that engine). The wiki copy at `systems/<system>/cheatsheet.md` is a
+**mirror** — the repo file is the source of truth, and the update Routine
+refreshes the mirror. Don't edit the wiki copy.
+
+## The update Routine (daily)
 
 A scheduled Claude Code Remote Routine (`create_new_session_on_fire`,
-weekly) does the following each run:
+**daily**, moved from weekly 2026-07-13) does the following each run:
 
-1. Pulls the latest default branch of heterodyne, auralbouros,
-   godot-pipeline, find, and this wiki repo.
-2. Compares each source repo's tracked paths (`agents/*.py`,
-   `schemas/*.py`, `data/worlds/*`, `data/characters/*`, find's agent
-   modules, godot-pipeline's `compositor/`) against the last-synced
-   commit SHA recorded in `.wiki-sync-state.json`.
-3. Re-runs `scripts/generate_reference.py` if anything changed.
-4. Leaves hand-authored pages untouched — only notes in the PR body if
-   their source material (e.g. a system's README) moved, so a human can
-   decide whether to update the prose.
-5. Opens **one PR** per run summarizing what changed and why (e.g.
-   "heterodyne@abc123 added agents/foo.py → new page"), including the
-   updated `.wiki-sync-state.json`. Nothing auto-merges.
+1. Fetches the latest default branch of heterodyne, find, auralbouros,
+   godot-pipeline, sophrosyne, and this wiki repo.
+2. Compares each source repo's HEAD against the last-synced commit SHA
+   recorded in `.wiki-sync-state.json`. Unchanged repos are skipped
+   entirely; if nothing changed anywhere, the run exits with no PR.
+3. For each changed repo, reviews the diff for **user-facing** changes:
+   new/changed CLI flags and scripts, GUI panels/pages/routes, API
+   endpoints, npm scripts, env vars, and config keys — then:
+   - updates that repo's manuals (`MANUAL.md` / `documents/USER MANUAL/`,
+     `README.md`, `STATUS.md`) and `CHEATSHEET.md` to match, via a PR to
+     that repo;
+   - re-runs `scripts/generate_reference.py`
+     (`APORIA_SOURCES_ROOT` points it at the checkouts);
+   - refreshes the wiki's `systems/<system>/cheatsheet.md` mirrors and
+     updates hand-authored system pages **only** where they now state
+     something false (prose style stays human);
+   - adds a dated line to the [changelog](changelog.md).
+4. Flags — without fixing — repo drift: local/default branches diverged,
+   unpushed feature branches, docs referencing files that don't exist.
+5. Runs `mkdocs build --strict`; a broken build blocks the PR.
+6. Opens **one PR per changed repo** plus one wiki PR (never pushes
+   mainline directly), each summarizing what changed and what was
+   documented, including the updated `.wiki-sync-state.json` in the wiki
+   PR. Nothing auto-merges.
 
 This is the same discipline as heterodyne's own
 [world-agnosticism rule](../systems/heterodyne/concepts/world-agnosticism.md)

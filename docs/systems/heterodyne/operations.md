@@ -13,6 +13,18 @@ hardware/setup, and duplicating them here would just drift).
 | `ORPHEUS_SETUP.md` | Fallback/alternate TTS backend setup |
 | `KNOWN_ISSUES.md` | Running bug/gap log, updated per session — not a design doc, just a record so findings aren't lost |
 | `AGENTS_A1_A8_STATUS.md` | Status of the A1–A8 engine-update workstreams |
+| `CHEATSHEET.md` | Every terminal command, by subsystem — mirrored here as the [cheat sheet](cheatsheet.md) |
+| `documents/USER MANUAL/` | The user manual set (index: `DOCUMENTATION_INDEX.md` v2.4; tab reference v2.2) |
+
+## Console v2.2 (2026-07-13)
+
+The GUI caught up with the engine: **⏰ Automation** (the daily production
+clock — in-app APScheduler trigger with publication-buffer gating, plus
+start/stop for the unattended `main.py --scheduler` daemon), **🎨 Art Kit**
+(every image flag), **📕 Novelist**, Writers'-Room/quality-tier/QA toggles
+on the Pipeline tab, and the A9 ambient-bed render on the Mixer tab. The tab
+previously named "Scheduler" was the four-channel release router and is now
+**📡 Channels**. Full details: `documents/USER MANUAL/TAB_REFERENCE.md`.
 
 ## TTS backend priority (as of v2.3)
 

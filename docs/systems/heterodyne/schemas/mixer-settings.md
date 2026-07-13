@@ -17,6 +17,12 @@ Audio mixer configuration for foley, music, and voice levels.
 | `sidechain_foley_ratio` | `float` |
 | `sidechain_music_ratio` | `float` |
 | `sidechain_bed_ratio` | `float` |
+| `foley_single_shot` | `bool` |
+| `max_foley_per_block` | `int` |
+| `pause_dynamics_enabled` | `bool` |
+| `pause_baseline_seconds` | `float` |
+| `pause_min_seconds` | `float` |
+| `pause_max_seconds` | `float` |
 | `transmission_enabled` | `bool` |
 | `transmission_intensity` | `float` |
 | `transmission_band_low` | `int` |

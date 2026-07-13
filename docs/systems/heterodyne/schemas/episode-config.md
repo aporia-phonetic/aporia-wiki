@@ -92,7 +92,7 @@ Fields marked NEW are additions from the Batch/Multilingual spec.
 | `dry_run` | `bool` |
 | `skip_audio` | `bool` |
 | `parallax_qa_enabled` | `bool` |
-| `script_pipeline` | `Literal['dramatist', 'writers_room']` |
+| `script_pipeline` | `Literal['dramatist', 'writers_room', 'local']` |
 | `quality_tier` | `Literal['standard', 'premiere']` |
 | `batch_mode` | `BatchMode` |
 | `use_prompt_caching` | `bool` |

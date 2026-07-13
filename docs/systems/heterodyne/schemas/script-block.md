@@ -49,6 +49,9 @@ this field is a TTS hint only, not a replacement for the spoken line.
 | Field | Type |
 |---|---|
 | `emotion` | `str` |
+| `subtext_emotion` | `Optional[str]` |
+| `subtext_strength` | `float` |
+| `paralinguistics` | `list[str]` |
 | `intensity` | `float` |
 | `contour_hint` | `str` |
 | `pace_modifier` | `float` |
@@ -110,6 +113,7 @@ Types: narration | dialogue | foley | music_cue
 | `merch_trigger_flag` | `bool` |
 | `merch_trigger_note` | `Optional[str]` |
 | `narrator_move` | `Optional[str]` |
+| `reported_speech_source` | `Optional[str]` |
 
 ### `ContinuityWarning`
 

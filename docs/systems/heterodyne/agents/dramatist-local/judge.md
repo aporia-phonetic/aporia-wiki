@@ -18,7 +18,7 @@ attempts, never crash the pipeline.
 
 ## Top-level functions
 
-- **`judge_world_fidelity()`** — Setting-contradiction flags: [{"quote": ..., "reason": ...}].
+- **`judge_world_fidelity()`** — Setting-contradiction flags plus the count of unchecked passages.
 - **`judge_premise_fidelity()`** — Gate-direction check: {"honors_gate": bool, "direction_errors": [...]}.
 - **`run_segment_judges()`** — Both judges; returns the verdict doc stored in SEG{n}_judge.json.
 - **`fidelity_feedback_block()`** — System-prompt addendum for a regeneration run: what to avoid.

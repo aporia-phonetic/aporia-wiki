@@ -21,7 +21,8 @@ drops them. They are seeded into a per-world CharacterInstance at story time.
 
 ## Top-level functions
 
-- **`generate_character()`** — Generate one character dict via Claude. `brief` is optional world/genre context.
+- **`generate_character()`** — Generate one character dict. `brief` is optional world/genre context;
 - **`register_character()`** — Persist a generation/sheet dict as a portable global identity.
 - **`create_character()`** — Create + register a character identity from explicit fields (no Claude).
+- **`generate_voice_seed_drafts()`** — Draft `count` new VOICE SEED field-sets via one Claude call.
 - **`backfill_rep_company()`** — Seed global identities from the immutable VOICE_SEED_REGISTRY.

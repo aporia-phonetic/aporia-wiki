@@ -72,7 +72,7 @@ candidate entries ranked by how well they match.
 
 | Field | Type |
 |---|---|
-| `family` | `FoleyFamily` |
+| `family` | `FoleyFamily | None` |
 | `context_keywords` | `list[str]` |
 | `duration_target_seconds` | `float | None` |
 | `active_character` | `str | None` |

@@ -136,3 +136,4 @@ The world begins in a stable, ruthless equilibrium — three divine powers contr
 ## Status
 
 - Seasons: [season_01](../seasons/caelum_reach/season_01.md)
+- Full sourcebook: `heterodyne/data/worlds/caelum_reach/sourcebook.md` (not mirrored here — see that file in the engine repo for the complete series bible)

@@ -9,5 +9,6 @@
 - [context](context.md)
 - [extractor](extractor.md)
 - [judge](judge.md)
+- [lint](lint.md)
 - [parser](parser.md)
 - [writer](writer.md)

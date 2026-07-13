@@ -47,6 +47,7 @@ so the batch can continue).
 | `backend` | `str | None` |
 | `skipped` | `bool` |
 | `cached` | `bool` |
+| `unconditioned` | `bool` |
 | `error` | `str | None` |
 
 ### `EpisodeRenderReport`

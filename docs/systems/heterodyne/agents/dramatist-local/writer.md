@@ -39,6 +39,7 @@ Accumulates token usage across every pipeline call.
 - **`transcript_tail()`** — Last ~max_words of the transcript, cut on line boundaries.
 - **`clean_batch()`** — Normalize one continuation batch into clean tagged script lines.
 - **`ngram_overlap()`** — Fraction of new_text's n-grams that already appear in prior_text.
+- **`narration_stats()`** — (word share of NARRATION lines, longest consecutive NARRATION run).
 - **`prose_to_readable()`** — Convert 'SPEAKER: text' lines to the '[SPEAKER] text' readable format
 - **`generate_segment_prose()`** — Run the continuation loop for one segment; returns its prose + hook.
 - **`generate_episode_prose()`** — Prose for every segment in order, chaining hooks between segments.

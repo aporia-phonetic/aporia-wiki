@@ -28,6 +28,27 @@ reproducing every release.
     a genre default, just a bootstrap artifact from before `WorldConfig`
     existed.
 
+## 2026-07-13 — ecosystem consolidation
+
+Everything brought to mainline and documented in one pass:
+
+- **heterodyne** — GUI v2.2 engine catch-up: ⏰ Automation clock panel
+  (wires the previously-orphaned scheduler core + publication buffer),
+  🎨 Art Kit, 📕 Novelist, Writers'-Room/quality-tier/QA-toggle pipeline
+  controls, ambient-bed in Mixer; "Scheduler" tab renamed **Channels**.
+  Manual set refreshed (TAB_REFERENCE v2.2, DOCUMENTATION_INDEX v2.4).
+- **find** — Votes + Clock pages, fleet/lore visibility, AOL→FIND frontend
+  rebrand; first README; ARCHITECTURE §5b for the post-rename subsystems.
+- **auralbouros** — real README (was a one-line stub); STATUS refreshed.
+- **godot-pipeline** — MANUAL regenerated against the implemented B1/B2
+  code (the old one described an empty scaffold); still parked.
+- **sophrosyne** — LODESTAR→SOPHROSYNE rename finished in MANUAL
+  (env vars were documented wrong).
+- **Every repo** gained a root `CHEATSHEET.md` (mirrored on each system's
+  wiki page); this wiki's generator paths became env-configurable
+  (`APORIA_SOURCES_ROOT`); the update Routine moved from weekly to
+  **daily** (see [update agent](update-agent.md)).
+
 ## heterodyne engine (selected — full log in the manual §33)
 
 - **v2.3 (2026-06-28)** — ZONOS2 adopted as the production voice-cloning

@@ -19,6 +19,22 @@ Backed by a single-writer SQLite ledger with HMAC-chained audit logging.
 Notifications route by priority: P1 → SMS + email, P2 → email, P3 →
 digest only.
 
+## Since 2026-06: fleet, board, votes, lore, clock
+
+- **SLM fleet** (`find/fleet/`) — every agent LLM call routes by call-type
+  through `config/llm_routing.yaml` with fallback chains and a per-call cost
+  ledger; visible at `GET /api/fleet/models` and on the Agents page.
+- **Advisory board** — multi-persona deliberation sessions (Board page).
+- **Votes** — the Episode-6 branching-season ballot system: hash-chained
+  ballot log; closing a window writes the heterodyne `branch_lock.json`
+  (Votes page, `/api/votes/...`).
+- **Lore feed** — `GET /api/lore` serves the heterodyne lore export to the
+  auralbouros app.
+- **Clock** — read-only view of the ~22 cron jobs + one-shots that drive
+  everything (`GET /api/scheduler/jobs`, Clock page).
+- **Rebrand** — the frontend now presents as **FIND** (formerly AOL); stored
+  `'AOL'`/`'AEON'` enum values are an intentional DB/API contract.
+
 ## Engine bridge
 
 find's own roadmap notes a bidirectional sync with **the-heterodyne** as
@@ -29,7 +45,8 @@ See [Decision Queue](decision-queue.md) and
 
 ## Existing docs (not mirrored here)
 
-`ARCHITECTURE.md` (contributor guide, bird's-eye system diagram),
-`DEPLOY.md` (Dockerfile/VPS deployment), `PREREQUISITES.md` (external
-account setup — Mercury, Stripe, LLC) are the canonical ops docs and stay
-in the find repo.
+`README.md` (overview + quick start), `ARCHITECTURE.md` (contributor
+guide, bird's-eye system diagram), `DEPLOY.md` (Dockerfile/VPS deployment),
+`PREREQUISITES.md` (external account setup — Mercury, Stripe, LLC) are the
+canonical ops docs and stay in the find repo. The
+[cheat sheet](cheatsheet.md) is mirrored here from `find/CHEATSHEET.md`.

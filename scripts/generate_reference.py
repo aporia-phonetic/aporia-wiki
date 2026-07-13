@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import ast
 import json
+import os
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -24,13 +25,31 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DOCS = REPO_ROOT / "docs"
 
-# Where the four source repos live in this environment. The update Routine
-# will set these to fresh clones; nothing below is world/system-specific.
+# Where the four source repos live. Configurable so the same script works on
+# the workstation (repos under /home/user/APORIA/<name>) and in the update
+# Routine (fresh clones wherever it puts them):
+#   APORIA_SOURCES_ROOT  — directory containing all four checkouts
+#   APORIA_SRC_<NAME>    — per-repo override (e.g. APORIA_SRC_HETERODYNE),
+#                          hyphens in the repo name become underscores
+# Note the HETERODYNE checkout directory is uppercase in the APORIA layout;
+# both spellings are tried.
+_SOURCES_ROOT = Path(os.environ.get("APORIA_SOURCES_ROOT", "/home/user/APORIA"))
+
+
+def _locate(repo_name: str) -> Path:
+    env_key = "APORIA_SRC_" + repo_name.upper().replace("-", "_")
+    if env_key in os.environ:
+        return Path(os.environ[env_key])
+    for candidate in (repo_name, repo_name.upper(), repo_name.lower()):
+        p = _SOURCES_ROOT / candidate
+        if p.exists():
+            return p
+    return _SOURCES_ROOT / repo_name
+
+
 SOURCES = {
-    "heterodyne": Path("/home/user/heterodyne"),
-    "auralbouros": Path("/home/user/auralbouros"),
-    "godot-pipeline": Path("/home/user/godot-pipeline"),
-    "find": Path("/home/user/find"),
+    name: _locate(name)
+    for name in ("heterodyne", "auralbouros", "godot-pipeline", "find")
 }
 
 
