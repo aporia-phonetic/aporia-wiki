@@ -49,6 +49,25 @@ Everything brought to mainline and documented in one pass:
   (`APORIA_SOURCES_ROOT`); the update Routine moved from weekly to
   **daily** (see [update agent](update-agent.md)).
 
+## 2026-07-14 — heterodyne: character authoring, dialogue memory, pressure-engine scaffold
+
+- Multi-pass character authoring (`agents/character_author.py`): idiolect
+  card + in-voice sample + blind-distinctness judge on top of character
+  generation, env-gated (`CHARACTER_AUTHOR_DEEP`, default on).
+- Dialogue memory (`agents/dialogue_memory.py`): per-character line
+  history recorded automatically at every Archivist commit, fed into
+  voice briefs.
+- Homeostatic pressure engine scaffolded (`schemas/pressures.py`,
+  `agents/pressure_engine.py`) — decaying drives + desensitizing moral
+  costs — but not yet wired into generation; `CharacterExtension`'s new
+  `pressure_state` field defaults to `None`/no-op.
+- New Chronicle system reference doc landed in heterodyne
+  (`docs/CHRONICLE_SYSTEM.md`, not mirrored into this wiki); sourcebook
+  compilation now runs an automatic season-scoped World QA gate (logs,
+  doesn't block) and can render a Gazetteer section from `locations.json`.
+- `scripts/run_phase4.py` gained `--world-id`/`--pipeline`/`--run-label`
+  flags in place of a hardcoded world default.
+
 ## heterodyne engine (selected — full log in the manual §33)
 
 - **v2.3 (2026-06-28)** — ZONOS2 adopted as the production voice-cloning

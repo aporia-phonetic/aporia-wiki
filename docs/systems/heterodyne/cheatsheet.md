@@ -146,6 +146,7 @@ trigger + buffer gating + this daemon's start/stop).
 | `python scripts/judge_episode.py <ep>` | LLM-judge an episode. |
 | `python scripts/compare_episode_metrics.py` | Compare metrics across episodes/runs. |
 | `python scripts/check_states.py` | Sanity-check console state files. |
+| `python scripts/run_phase4.py [--world-id ID] [--pipeline dramatist\|writers-room] [--episode N] [--run-label LABEL] [--start-at STAGE] [--skip-existing] [--no-music] [--dry-run]` | End-to-end acceptance test: one episode through script → maps → voice → foley → music → mix, with a PASS/FAIL report per stage. `--run-label` namespaces output so parallel pipeline runs don't collide. |
 
 ## Local-LLM pipeline (Dramatist Local)
 
@@ -182,7 +183,9 @@ See `docs/DRAMATIST_LOCAL.md` + `docs/llm_backends.md`. Routing lives in
 Key env vars: `WORLD_ID`, `SEASON`, `CURRENT_EPISODE`, `DAILY_TRIGGER_TIME`,
 `SPENDING_CAP_USD`, `OUTPUT_DIR`, `LLM_BACKEND`/`config/llm_routing.yaml`,
 `IP_CLEARANCE_ENABLED`, `IMAGE_VARIANTS`, `NOVELIST_INBOX_DIR`,
-`NOVELIST_OUTPUT_DIR`.
+`NOVELIST_OUTPUT_DIR`, `CHARACTER_AUTHOR_DEEP` (default on; multi-pass
+character authoring with a blind-distinctness check — set to
+`0`/`false`/`no`/`off` for the old single-call generator).
 
 ## Novelist
 

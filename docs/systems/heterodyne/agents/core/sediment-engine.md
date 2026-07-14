@@ -10,7 +10,9 @@ geography, linguistic sediment, mythology, and chronicle seeds to the per-world
 ``deep_ledger.db``.
 
 This is the Chronicle-system implementation specified in
-``AEON_CHRONICLE_SYSTEM.md`` §§1.2–1.7.
+``docs/CHRONICLE_SYSTEM.md`` (as-built spec; the original
+``AEON_CHRONICLE_SYSTEM.md`` it cited — the ``§1.2–1.7`` markers below —
+was never committed and is lost).
 
 ## Defined here
 
