@@ -108,6 +108,7 @@ migration needed for future world-level sourcebooks).
 | `tone_descriptors` | `list[str]` |
 | `available_species` | `list[str]` |
 | `present_day` | `PresentDayNarrative` |
+| `locations` | `list[dict]` |
 | `history_digest` | `str` |
 | `mechanics` | `SourcebookMechanics` |
 | `season_number` | `Optional[int]` |

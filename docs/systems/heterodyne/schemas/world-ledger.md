@@ -308,8 +308,9 @@ Asymmetric: maren.trust_toward['cael'] != cael.trust_toward['maren'].
 
 Emotional register for a single character.
 
-baseline_affect: default emotional register, stable across the season.
-                 Set at character creation. Changes only at major arc beats.
+baseline_affect: default emotional register. Set at character creation;
+                 shifts only through sustained divergence (see
+                 drift_baseline) or explicit major-beat updates.
 current_affect:  emotional state entering this episode.
                  Updated by the Archivist from prior episode outcomes.
 
@@ -318,6 +319,9 @@ current_affect:  emotional state entering this episode.
 | `baseline_affect` | `AffectState` |
 | `current_affect` | `AffectState` |
 | `affect_note` | `Optional[str]` |
+| `divergence_streak` | `int` |
+| `DRIFT_STREAK_PRESSURED` | `ClassVar[int]` |
+| `DRIFT_STREAK_CALM` | `ClassVar[int]` |
 
 ### `LocationEntry`
 
@@ -567,8 +571,10 @@ The Archivist merges this into the character context block at episode open.
 | `knowledge_state` | `KnowledgeState` |
 | `trust_map` | `TrustMap` |
 | `emotional_state` | `EmotionalState` |
+| `arc_note` | `Dict[str, Any]` |
 | `gender_presentation` | `GenderPresentation` |
 | `behavioral_masks_json` | `Optional[BehavioralMaskConfig]` |
+| `pressure_state` | `Optional[PressureState]` |
 
 ### `WorldLedger`
 
@@ -589,6 +595,7 @@ fields are additive — no existing field names or types were modified.
 | `cultural_markets` | `List[str]` |
 | `previous_episode_hooks` | `List[str]` |
 | `debuted_voice_seed_ids` | `List[str]` |
+| `last_spoken_episode` | `Dict[str, int]` |
 | `location` | `str` |
 | `characters` | `Dict[str, Any]` |
 | `locations` | `Dict[str, Any]` |
