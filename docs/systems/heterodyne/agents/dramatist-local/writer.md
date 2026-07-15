@@ -33,6 +33,7 @@ Accumulates token usage across every pipeline call.
 | `hook` | `str` |
 | `batches` | `int` |
 | `beats_completed` | `int` |
+| `beat_starts` | `list[int]` |
 
 ## Top-level functions
 

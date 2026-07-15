@@ -72,6 +72,7 @@
 - [sediment-engine](sediment-engine.md)
 - [social-poster](social-poster.md)
 - [sourcebook-compiler](sourcebook-compiler.md)
+- [sourcebook-ingest](sourcebook-ingest.md)
 - [speaker-embedding](speaker-embedding.md)
 - [story-service](story-service.md)
 - [trajectory](trajectory.md)

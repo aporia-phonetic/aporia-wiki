@@ -39,6 +39,7 @@ Per-run knobs for LocalDramatist. Build with from_env() in runners.
 | `continuity_judge_action` | `str` |
 | `judge_noverdict_action` | `str` |
 | `lint_action` | `str` |
+| `surgical_regen` | `bool` |
 | `segments_override` | `int | None` |
 | `segments_per_episode` | `int` |
 | `minutes_per_segment` | `int` |

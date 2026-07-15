@@ -68,6 +68,25 @@ Everything brought to mainline and documented in one pass:
 - `scripts/run_phase4.py` gained `--world-id`/`--pipeline`/`--run-label`
   flags in place of a hardcoded world default.
 
+## 2026-07-15 — heterodyne: sourcebook re-ingest, beat-level regen surgery, GPU routing
+
+- Sourcebook re-ingest loop: `aeon.py world ingest <world_id> [--season N]`
+  (`agents/sourcebook_ingest.py`, new) captures human edits to a compiled
+  `sourcebook.md` as `canon_overrides.json`, colocated with the file it
+  governs. Every later compile re-applies stored overrides after
+  rendering, and `build_sourcebook_context()` injects them into episode
+  context as a highest-authority CANON OVERRIDES block — human edits
+  survive recompiles and reach generation, not just the document.
+  `--baseline`/`--clear SECTION`/`--clear-all` round out the loop.
+- Local Dramatist beat-level regeneration surgery
+  (`LOCAL_SURGICAL_REGEN`, default on): when a gating flag maps onto a
+  beat span, only the flagged tail regenerates instead of the whole
+  segment; falls back to whole-segment regen when a flag can't be pinned
+  to a beat.
+- `config/llm_routing.local.yaml`'s `local_32b`/`local_gemma26` backends
+  now read `${OLLAMA_GPU_URL:-http://localhost:11434}` and set a fixed
+  `timeout: 1800`, for pointing the local-LLM routes at a remote GPU host.
+
 ## heterodyne engine (selected — full log in the manual §33)
 
 - **v2.3 (2026-06-28)** — ZONOS2 adopted as the production voice-cloning
