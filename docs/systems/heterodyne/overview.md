@@ -21,7 +21,7 @@ Pipeline*.
 | `data/worlds/{world_id}/` | 5 worlds | Per-world config, sourcebook, seasons, episodes, ledgers |
 | `data/characters/{character_id}/` | global registry | Character identity + cross-world appearances |
 | `gui/` | — | PyQt production console |
-| `aeon.py` | — | Unified CLI (`aeon world create/build/chronicle/sourcebook/list/show`) |
+| `aeon.py` | — | Unified CLI (`aeon world create/build/chronicle/sourcebook/ingest/list/show`) |
 
 See [Agent reference](agents/core/index.md) and [Schema reference](schemas/index.md) for
 the generated per-module pages.

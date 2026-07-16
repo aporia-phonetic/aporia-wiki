@@ -10,6 +10,9 @@ aeon world create     <world_id> [--name ... --genre ... --description ...]
 aeon world build      <world_id>           # re-run the build on an existing world
 aeon world chronicle  <world_id>           # just the Sediment Engine step
 aeon world sourcebook <world_id> [--season N]
+aeon world ingest     <world_id> [--season N]  # capture human sourcebook edits
+                                               # as canon overrides that survive
+                                               # recompiles
 aeon world list
 aeon world show       <world_id>
 

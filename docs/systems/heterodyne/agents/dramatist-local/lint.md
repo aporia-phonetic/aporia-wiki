@@ -13,5 +13,6 @@ recorded in SEG{n}_judge.json (the default, report).
 ## Top-level functions
 
 - **`transcript_lint_lines()`** — Convert a plain tagged transcript into the linter's line dicts.
+- **`transcript_lint_raw_indices()`** — Raw transcript line index behind each lint line, in lint order.
 - **`run_transcript_lint()`** — 
 - **`lint_report_dict()`** — JSON-serializable form for SEG{n}_judge.json / episode reports.

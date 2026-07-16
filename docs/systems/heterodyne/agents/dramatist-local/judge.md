@@ -18,6 +18,7 @@ attempts, never crash the pipeline.
 
 ## Top-level functions
 
+- **`locate_quote_line()`** — 0-based transcript line where a judge flag's quoted text begins.
 - **`judge_world_fidelity()`** — Setting-contradiction flags plus the count of unchecked passages.
 - **`verify_world_flags()`** — Second-opinion pass on each world flag: literal contradiction, or
 - **`judge_premise_fidelity()`** — Gate-direction check: {"honors_gate": bool, "direction_errors": [...]}.

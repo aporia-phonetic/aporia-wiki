@@ -23,7 +23,7 @@ own construction and slice off what it appended.
 - **`episode_directives()`** — Reuse the cloud Dramatist's episode-config directive construction.
 - **`build_crossover_context()`** — Prior crossover records, mirroring generate_episode's injection.
 - **`build_world_context()`** — World identity + magic + tone from world_config.json (authoritative).
-- **`build_sourcebook_context()`** — Season sourcebook (preferred) or whole-world chronicle digest.
+- **`build_sourcebook_context()`** — Season sourcebook (preferred) or whole-world chronicle digest, plus
 - **`build_roster_context()`** — Cast roster block (status, species, appearance, catchphrases).
 - **`build_voice_context()`** — Vocal-personality guidance for the whole active cast.
 - **`build_orientation_context()`** — Which characters debut this episode, and whether it opens a series/season.

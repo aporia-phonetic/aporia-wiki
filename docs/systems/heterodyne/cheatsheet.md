@@ -65,6 +65,7 @@ trigger + buffer gating + this daemon's start/stop).
 | `python aeon.py world list` / `show <id>` | Build status / print a sourcebook. |
 | `python aeon.py world chronicle <id>` | Just the Sediment Engine deep-history step (expensive). |
 | `python aeon.py world sourcebook <id> [--season N]` | Compile/refresh a sourcebook. |
+| `python aeon.py world ingest <id> [--season N] [--baseline\|--clear SECTION\|--clear-all]` | Capture human edits to a compiled sourcebook.md as canon overrides — they survive the next recompile and get injected into episode context as highest-authority canon. `--baseline` bootstraps a pre-ingest file; `--clear`/`--clear-all` revert section(s) to machine-generated text. |
 | `python main.py --chronicle` / `--sourcebook` | Flag-form equivalents for the active world. |
 | `python main.py --export-history [out.md]` | Read-only Markdown export of the world history (no API key). |
 | `python main.py --manifests <CHARACTER>` | A.C.E.S. outcome manifest for one character ($5–15). |
