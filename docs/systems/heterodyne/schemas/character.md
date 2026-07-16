@@ -100,9 +100,11 @@ is_narrator:
 | `flat_affect` | `bool` |
 | `voice_design_prompt` | `Optional[str]` |
 | `zonos2_tempo` | `float` |
+| `zonos2_seed` | `int | None` |
 | `voice_gender` | `Optional[Literal['masculine', 'feminine', 'neutral']]` |
 | `prosody_tags` | `list[str]` |
 | `sampling_temperature` | `float | None` |
 | `pitch_semitones` | `float` |
 | `formant_shift` | `float` |
 | `golden_age_texture` | `str | None` |
+| `qa_min_speaker_similarity` | `float | None` |

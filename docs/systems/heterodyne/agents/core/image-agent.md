@@ -31,14 +31,14 @@ Usage:
     from agents.image_agent import ImageAgent, ImageRequest, ImageType
     from schemas import paths
 
-    agent = ImageAgent(output_dir=paths.output_type_dir("images", "verdant_deep"), backend="openai")
+    agent = ImageAgent(output_dir=paths.output_type_dir("images", "caelum_reach"), backend="openai")
 
     # Character portrait
     req = ImageRequest(
         image_type=ImageType.PORTRAIT,
         character_name="Maren Voss",
         physical_description="Tall, broad-shouldered woman, close-cropped gray hair, ...",
-        world_aesthetic="1930s pulp adventure, green jungle ruins, warm sepia tones",
+        world_aesthetic="painterly studio portrait, coal-black and amber gaslight palette",
     )
     result = agent.generate(req)
     print(result.path)   # Path to saved PNG
@@ -50,7 +50,7 @@ Usage:
         season=1,
         title="Rootwork and Ruin",
         scene_description="Crew discovers a sealed vault beneath a root-choked atrium",
-        world_aesthetic="1930s pulp magazine cover, Art Deco, golden hour jungle light",
+        world_aesthetic="moody illustrated magazine cover, coal-black and amber gaslight palette",
     )
     result = agent.generate(req)
 
