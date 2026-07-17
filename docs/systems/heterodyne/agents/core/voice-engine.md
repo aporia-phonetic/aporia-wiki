@@ -48,6 +48,10 @@ so the batch can continue).
 | `skipped` | `bool` |
 | `cached` | `bool` |
 | `unconditioned` | `bool` |
+| `qa_attempts` | `int | None` |
+| `qa_speaker_similarity` | `float | None` |
+| `qa_wer` | `float | None` |
+| `qa_flagged` | `bool` |
 | `error` | `str | None` |
 
 ### `EpisodeRenderReport`

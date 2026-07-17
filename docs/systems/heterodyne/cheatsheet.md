@@ -115,6 +115,7 @@ trigger + buffer gating + this daemon's start/stop).
 | `python scripts/draft_voice_seeds.py` / `patch_voices.py` | Draft VS registry entries / patch voices in a render. |
 | `python scripts/zonos2_render.py` / `omnivoice_render.py` | Render lines via a specific backend. |
 | `bash scripts/run_zonos2_server.sh` | Start the ZONOS2 GPU TTS server (see `ZONOS2_SETUP.md`; systemd: `scripts/zonos2-server.service`). |
+| `.venv-qwen3tts/bin/python scripts/qwen3tts_server.py --port 8720` | Start the Qwen3-TTS server (available `qwen3tts` backend; see `docs/TTS_SHOOTOUT_2026-07.md`). |
 
 ## Foley & SFX
 

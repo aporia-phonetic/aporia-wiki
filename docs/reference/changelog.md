@@ -87,6 +87,29 @@ Everything brought to mainline and documented in one pass:
   now read `${OLLAMA_GPU_URL:-http://localhost:11434}` and set a fixed
   `timeout: 1800`, for pointing the local-LLM routes at a remote GPU host.
 
+## 2026-07-16 — heterodyne: TTS shootout (Qwen3-TTS), image-gen genre-neutralization
+
+- TTS shootout benchmarked 8 free TTS engines against ZONOS2 on a shared
+  50-line segment (`docs/TTS_SHOOTOUT_2026-07.md`). **Qwen3-TTS**
+  (x-vector cloning) came within 0.018 speaker-similarity of ZONOS2 with
+  the field's best WER and is now wired in as an available `tts_backend`
+  (`agents/tts_client.py::Qwen3TTS`, `scripts/qwen3tts_server.py`) —
+  ZONOS2 remains the production default; no cast seed switched. Also
+  added: an opt-in render-verify-reroll QA loop
+  (`ENABLE_RENDER_QA_LOOP`) and ZONOS2 server-side speaker-embedding
+  caching.
+- Image-gen genre-neutralization fix: `agents/image_agent.py` /
+  `agents/animator.py` / `agents/video_compositor.py` had a 1930s/pulp
+  aesthetic hardcoded into engine code, firing for every world regardless
+  of declared genre — the exact bug shape [World-agnostic engine
+  code](../systems/heterodyne/concepts/world-agnosticism.md) warns about.
+  Fixed by genre-neutralizing the engine fallbacks, adding a
+  `portrait_style` key to `image_style.json`, and moving Animator's
+  per-location camera templates into per-world
+  `data/worlds/<id>/camera_directions.json`. Also wired the previously-
+  unused IP-Adapter FaceID/LoRA machinery into `--character-art` so a
+  cast member's bust/full/action shots share one face reference.
+
 ## heterodyne engine (selected — full log in the manual §33)
 
 - **v2.3 (2026-06-28)** — ZONOS2 adopted as the production voice-cloning

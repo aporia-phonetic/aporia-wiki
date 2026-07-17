@@ -84,6 +84,13 @@ api     — posts to an Orpheus-FastAPI endpoint (OpenAI-compatible).
 Speed is accepted for protocol compatibility but is not applied —
 Orpheus does not expose a speed control in its current API.
 
+temperature/repetition_penalty are applied per-request in native mode
+only — the orpheus-fastapi server (api mode) has no per-request fields
+for either and reads fixed values from its own .env instead.
+repetition_penalty is clamped to >= MIN_REPETITION_PENALTY (1.1):
+Orpheus is prone to repetition loops, more so once emotion bracket tags
+are in the prompt.
+
 ### `ElevenLabsTTS`
 
 ElevenLabs API adapter satisfying the TTSClient protocol.
@@ -153,6 +160,27 @@ and parses the float32 PCM (44.1 kHz mono) response.
 `voice` is the reference WAV path (same convention as chatterbox/zonos). When
 the server is unreachable the call raises, which the VoiceEngine health probe
 turns into a fallback to the secondary backend (chatterbox) → kokoro.
+
+### `Qwen3TTS`
+
+Qwen3-TTS adapter satisfying the TTSClient protocol — x-vector cloning
+mode (docs/TTS_SHOOTOUT_2026-07.md: won decisively against ICL mode and
+per-character LoRA on the full 50-line segment, 0.924 sim / 0.039 WER /
+0 bad lines; needs no ref transcript, Apache-2.0, deterministic at a
+fixed seed).
+
+Runs as a standalone server (scripts/qwen3tts_server.py, .venv-qwen3tts)
+rather than in-process: qwen-tts pins a transformers version the main
+pipeline venv doesn't share, the same reason ZONOS2 (Zonos2TTS above)
+runs as a separate server instead of loading in-process.
+    Start: CUDA_VISIBLE_DEVICES=1 HF_HOME=models/hf_cache             .venv-qwen3tts/bin/python scripts/qwen3tts_server.py
+
+`voice` is the reference WAV path (same convention as chatterbox/zonos/
+zonos2). The server caches each ref's x-vector voice-clone prompt in
+memory keyed by path, so this client only uploads a given character's
+reference clip once per server process — subsequent lines just send the
+path. When the server is unreachable the call raises, which the
+VoiceEngine health probe turns into a fallback to the secondary backend.
 
 ## Top-level functions
 
