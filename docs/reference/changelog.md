@@ -110,6 +110,33 @@ Everything brought to mainline and documented in one pass:
   unused IP-Adapter FaceID/LoRA machinery into `--character-art` so a
   cast member's bust/full/action shots share one face reference.
 
+## 2026-07-18 — heterodyne: image-gen subject-truncation fix, local-pipeline character-intro fix
+
+- Image-gen subject-truncation fix: CLIP's 77-token-per-encoder limit meant
+  a long, freely-edited world style banner could push the actual
+  per-request subject (which character, which named vessel/location) past
+  the truncation point, silently collapsing every request of that image
+  type to the same generic result — confirmed happening for both
+  `PORTRAIT` and `SCENE_SNAPSHOT`. Every `image_type` with per-request
+  identifying content now leads with that content and carries the style
+  banner as a secondary qualifier (only `MERCH` still leads with the
+  banner). Adds a `location_plate_style` key to `image_style.json`
+  (`IMAGE_LOCATION_PLATE_STYLE` env override) as a dedicated look for
+  `--location-plates`, separate from `house_style`/`portrait_style`;
+  `--covers` scene descriptions now thread in the episode's plot-gate
+  title/hook and dominant tone; `--hero-shots` now prefers a character's
+  own `action_setting` override over a scene-derived location brief.
+- Local-pipeline character-intro + season-1 world-scoping fix: the local
+  Dramatist's `orientation_opening_beat()` only forced the strong
+  character-introduction treatment for series/season premieres, so an
+  ordinary mid-season debut fell back to a system-prompt-only instruction
+  and produced unnamed dialogue — now fires for any debut.
+  `bootstrap_ledger()`'s season-1 path also unconditionally skipped a
+  world's own `console_state_1.json` scaffold and fell back to
+  `WorldLedger.episode_1_baseline()` (Verdant Deep's seed state) for every
+  world; the scaffold lookup is now scoped to the active world via
+  `resolve_world_id()`.
+
 ## heterodyne engine (selected — full log in the manual §33)
 
 - **v2.3 (2026-06-28)** — ZONOS2 adopted as the production voice-cloning

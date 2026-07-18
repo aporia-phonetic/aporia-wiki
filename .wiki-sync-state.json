@@ -1,8 +1,8 @@
 {
   "description": "Last commit SHA of each source repo the generator was run against. The update Routine reads this, diffs each repo's HEAD against the recorded SHA, regenerates affected pages, then updates this file in the same PR.",
-  "generated_at": "2026-07-16T00:00:00Z",
+  "generated_at": "2026-07-18T00:00:00Z",
   "sources": {
-    "heterodyne": "621a04c1b101d99f587355dcb54f6f3b883ae54c",
+    "heterodyne": "e9acc3a44de9b1878a1dcdf2302e0ceab9f6287f",
     "auralbouros": "5e462203a7f3651fdf630b97ae92d4ba5729c05a",
     "godot-pipeline": "9c6c959fc94c86085827b6984f589dfc8e65d90b",
     "find": "8d47c7b7b4b64dc4d71600e17972a711046e8384",
