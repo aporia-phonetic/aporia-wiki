@@ -27,5 +27,5 @@ own construction and slice off what it appended.
 - **`build_roster_context()`** — Cast roster block (status, species, appearance, catchphrases).
 - **`build_voice_context()`** — Vocal-personality guidance for the whole active cast.
 - **`build_orientation_context()`** — Which characters debut this episode, and whether it opens a series/season.
-- **`orientation_opening_beat()`** — A synthetic first beat that forces the writer to open by orienting the
+- **`orientation_opening_beat()`** — A synthetic first beat that forces the writer to open by introducing
 - **`build_full_context()`** — Assemble every context block for the writer/beat/judge system prompts.
